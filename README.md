@@ -1,45 +1,21 @@
-usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]
-           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
-           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]
-           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
-           [--super-prefix=<path>] [--config-env=<name>=<envvar>]
-           <command> [<args>]
+#Emotion Recognition Model
 
-These are common Git commands used in various situations:
+This is a Python implementation of an emotion recognition model using machine learning techniques. The model is designed to analyze facial expressions and classify them into different emotion categories such as happy, sad, angry, etc.
 
-start a working area (see also: git help tutorial)
-   clone     Clone a repository into a new directory
-   init      Create an empty Git repository or reinitialize an existing one
+#Dependencies
 
-work on the current change (see also: git help everyday)
-   add       Add file contents to the index
-   mv        Move or rename a file, a directory, or a symlink
-   restore   Restore working tree files
-   rm        Remove files from the working tree and from the index
+The following Python packages are required to run the emotion recognition model:
 
-examine the history and state (see also: git help revisions)
-   bisect    Use binary search to find the commit that introduced a bug
-   diff      Show changes between commits, commit and working tree, etc
-   grep      Print lines matching a pattern
-   log       Show commit logs
-   show      Show various types of objects
-   status    Show the working tree status
+numpy
+opencv-python
+keras
 
-grow, mark and tweak your common history
-   branch    List, create, or delete branches
-   commit    Record changes to the repository
-   merge     Join two or more development histories together
-   rebase    Reapply commits on top of another base tip
-   reset     Reset current HEAD to the specified state
-   switch    Switch branches
-   tag       Create, list, delete or verify a tag object signed with GPG
+#Dataset
+The emotion recognition model was trained on the FER-2013 dataset, which consists of 35,887 grayscale images of faces with 48x48 pixels. Each image is labeled with one of seven emotion categories: angry, disgust, fear, happy, sad, surprise, or neutral.
 
-collaborate (see also: git help workflows)
-   fetch     Download objects and refs from another repository
-   pull      Fetch from and integrate with another repository or a local branch
-   push      Update remote refs along with associated objects
+The dataset is provided in a CSV file format with two columns: emotion and pixels. The emotion column contains an integer label between 0 and 6 corresponding to the emotion category, while the pixels column contains a string of comma-separated pixel values for each image.
 
-'git help -a' and 'git help -g' list available subcommands and some
-concept guides. See 'git help <command>' or 'git help <concept>'
-to read about a specific subcommand or concept.
-See 'git help git' for an overview of the system.
+To preprocess the dataset, we first split the pixels column into separate pixel values and reshape them into a 48x48 matrix. We then normalized the pixel values to be between 0 and 1 and split the data into training, validation, and test sets.
+
+#Usage
+To use the emotion recognition model, you can run the emotion_detector.py script. This script takes an input image path as an argument and outputs the predicted emotion category.
